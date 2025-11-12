@@ -143,11 +143,9 @@ text-align: center;       /* centers text inside */
 }
 
 iframe {
-  border: 0;
-  width: 800px;
-  height: 800px;
-  max-width: 95vw;
-  max-height: 95vw;
+width: min(95vw, 800px);
+  aspect-ratio: 1 / 1;   /* auto-calculates height from width */
+  height: auto;          /* respect aspect-ratio */
 }
 </style>
 </head>
