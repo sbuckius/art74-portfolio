@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href='https://fonts.googleapis.com/css?family=Anek Odia' rel='stylesheet'> 
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+font-family: 'Anek Odia';font-size: 22px;  
+margin: 10px;
+  padding: 0;
+background-image: url('images/M03_meme_mashup2.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h2, p {
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #FC19B7;
+}
+
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover:not(.active) {
+  background-color: #750050;
+}
+
+ul li a.active {
+  background-color: #04AA6D;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="index.html" class="active">Sarah Buckius</a></li>
+  <li><a href="glitch.html">Glitch</a></li>
+  <li><a href="meme_mashup.html">MEME Mashup</a></li>
+  <li><a href="3d.html">3D</a></li>
+  <li><a href="net_art.html">Net Art</a></li>
+  <li style="float:right"><a href="about.html">About</a></li>
+</ul>
+
+
+<div style="text-align:center">
+  <h2>MEME Mashup</h2>
+  <p>Artist Statement</p>
+</div>
+
+<video width="500" style="display: block; margin: 50px auto; width: 500px;" controls>
+  <source src="videos/meme_mashup.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
+
+<!-- The four columns -->
+<div class="row">
+  <div class="column">
+    <img src="images/M03_meme_mashup1.png" alt="Meme Mashup" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/M03_meme_mashup2.png" alt="Snow" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/M03_meme_mashup3.png" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="images/M03_meme_mashup4.png" alt="Lights" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+
+
+
+</body>
+</html>
