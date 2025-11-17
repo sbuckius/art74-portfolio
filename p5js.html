@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href='https://fonts.googleapis.com/css?family=Anek Odia' rel='stylesheet'> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+
 <style>
 * {
   box-sizing: border-box;
@@ -44,7 +53,7 @@ ul li a.active {
   background-color: #04AA6D;
 }
 
-/* General layout */
+/* Content container */
 .container { 
   position: relative;
   border: none;
@@ -53,6 +62,7 @@ ul li a.active {
   align-items: center;
   background: transparent;
   padding: 20px;
+  text-align: center;
 }
 
 .center {
@@ -82,12 +92,12 @@ iframe {
   outline: none;
   width: min(95vw, 800px);
   aspect-ratio: 1 / 1;
-  background: transparent;  /* prevent white box */
+  background: transparent;  /* remove white box effect */
   margin: 0;
   padding: 0;
 }
 
-/* Responsive columns (if needed later) */
+/* Responsive columns (optional future use) */
 @media screen and (max-width: 900px) {
   .column {
     width: 50%;
@@ -100,3 +110,56 @@ iframe {
   }
 }
 </style>
+</head>
+<body>
+
+<ul>
+  <li><a href="index.html" class="active">Sarah Buckius</a></li>
+  <li><a href="glitch.html">Glitch</a></li>
+  <li><a href="meme_mashup.html">MEME Mashup</a></li>
+  <li><a href="3d.html">3D</a></li>
+  <li><a href="net_art.html">Net Art</a></li>
+  <li><a href="p5js.html">p5.js</a></li>
+  <li style="float:right"><a href="about.html">About</a></li>
+</ul>
+
+<!-- Intro section -->
+<div class="container">
+  <div class="center">
+    <p>
+      <span style="font-size: 22px">Net Art Title</span> <br>
+      Artist statement blah blah blah<br>
+      Second line of artist statement<br>
+      Third line if needed<br><br>
+      <a href="https://sbuckius.github.io/net-art-html-hypertext-narrative/" style="color: #FC19B7;">Hyperlink Narrative Piece</a>
+    </p>
+  </div>
+</div>
+
+<!-- Centered iframes -->
+<div class="iframe-container">
+  <iframe src="one_button_game_moving_target_image/index.html" title="One Button Game"></iframe>
+  <p>
+    <span style="font-size: 22px">One Button Game Title</span><br>
+    Artist statement blah blah blah<br><br>
+  </p>
+</div>
+
+<div class="iframe-container">
+  <iframe src="self_portrait_demo_oct14/index.html" title="Self Portrait"></iframe>
+  <p>
+    <span style="font-size: 22px">Self Portrait Title</span><br>
+    Artist statement blah blah blah<br><br>
+  </p>
+</div>
+
+<div class="iframe-container">
+  <iframe src="self_portrait_with_drawing/index.html" title="Drawing Tool"></iframe>
+  <p>
+    <span style="font-size: 22px">Drawing Tool Title</span><br>
+    Artist statement blah blah blah<br><br>
+  </p>
+</div>
+
+</body>
+</html>
