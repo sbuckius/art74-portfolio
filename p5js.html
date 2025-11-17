@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"> 
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href='https://fonts.googleapis.com/css?family=Anek Odia' rel='stylesheet'> 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
 <style>
 * {
   box-sizing: border-box;
 }
 
 body {
-font-family: 'Anek Odia';font-size: 22px;  
-margin: 10px;
+  font-family: 'Anek Odia';
+  font-size: 22px;
+  margin: 0;
   padding: 0;
-background-image: url('images/M05_netart_3.png');
+  background-image: url('images/M05_netart_3.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
-h2, p, a {
-  margin: 0px;
-font-size: 15px;
-}
-
+/* Navbar styles */
 ul {
   list-style-type: none;
   margin: 0;
@@ -47,7 +33,7 @@ ul li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-font-size: 22px;
+  font-size: 22px;
 }
 
 ul li a:hover:not(.active) {
@@ -58,155 +44,59 @@ ul li a.active {
   background-color: #04AA6D;
 }
 
-/* Center website */
-.main {
-  max-width: 1000px;
-  margin: auto;
+/* General layout */
+.container { 
+  position: relative;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 20px;
 }
 
-h1 {
-  font-size: 50px;
-  word-break: break-all;
+.center {
+  text-align: center;
+  white-space: pre-line;
+  color: white;
 }
 
-.row {
-  margin: 8px -16px;
+.center p {
+  line-height: 1.2;
+  margin: 0;
 }
 
-/* Add padding BETWEEN each column */
-.row,
-.row > .column {
-  padding: 8px;
+/* Center the iframes and remove lines */
+.iframe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  text-align: center;
 }
 
-/* Create four equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 25%;
+iframe {
+  display: block;
+  border: none;
+  outline: none;
+  width: min(95vw, 800px);
+  aspect-ratio: 1 / 1;
+  background: transparent;  /* prevent white box */
+  margin: 0;
+  padding: 0;
 }
 
-/* Clear floats after rows */ 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Content */
-.content {
-  background-color: white;
-  padding: 10px;
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
+/* Responsive columns (if needed later) */
 @media screen and (max-width: 900px) {
   .column {
     width: 50%;
   }
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
   }
 }
-
-.container { 
-  position: relative;
-  border: 3px solid green; 
-display: flex;
-  justify-content: center;   /* center horizontally */
-  align-items: center;       /* center vertically (if you ever set a height) */
-  background-color: white;
-  padding: 10px;     
-}
-
-.center {
-
-text-align: center;       /* centers text inside */
-  white-space: pre-line;    /* preserves line breaks */
-}
-
-.center p {
-  line-height: .8;  /* tighter spacing between lines */
-  margin: 0;         /* remove default paragraph margins */
-}
-
-
-   /* Center the iframes */
-.iframe-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px 0;
-}
-
-iframe {
-width: min(95vw, 800px);
-  aspect-ratio: 1 / 1;   /* auto-calculates height from width */
-  height: auto;          /* respect aspect-ratio */
-}
 </style>
-</head>
-<body>
-
-<ul>
-  <li><a href="index.html" class="active">Sarah Buckius</a></li>
-  <li><a href="glitch.html">Glitch</a></li>
-  <li><a href="meme_mashup.html">MEME Mashup</a></li>
-  <li><a href="3d.html">3D</a></li>
-  <li><a href="net_art.html">Net Art</a></li>
-       <li><a href="p5js.html">p5.js</a></li>
-  <li style="float:right"><a href="about.html">About</a></li>
-</ul>
-
-
-<!-- MAIN (Center website) -->
-<div class="container">
-<div class="center">
-  <p>
-<span style="font-size: 22px">Net Art Title</span> <br>
-    Artist statement blah blah blah<br>
-    Second line of artist statement<br>
-    Third line if needed
- <br>
-  <a href="https://sbuckius.github.io/net-art-html-hypertext-narrative/">Hyperlink Narrative Piece</a>
- </p>
-</div>
-</div>
-
-<!-- Centered iframes -->
-<div class="iframe-container">
-  <iframe src="one_button_game_moving_target_image/index.html" title="One Button Game"></iframe>
-   <br>
-    <p>
-<span style="font-size: 22px">One Button Game Title</span> <br>
-    Artist statement blah blah blah<br>
- <br>
- </p>
-</div>
-
-<div class="iframe-container">
-  <iframe src="self_portrait_demo_oct14/index.html" title="Self Portrait"></iframe>
-    <br>
-       <p>
-<span style="font-size: 22px">Self Portrait Title</span> <br>
-    Artist statement blah blah blah<br>
- <br>
- </p>
-</div>
-
-<div class="iframe-container">
-  <iframe src="self_portrait_with_drawing/index.html" title="Drawing Tool"></iframe>
-    <br>
-       <p>
-<span style="font-size: 22px">Drawing Tool Title</span> <br>
-    Artist statement blah blah blah<br>
- <br>
- </p>
-</div>
-
-
-</body>
-</html>
