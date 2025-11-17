@@ -53,10 +53,9 @@ ul li a.active {
   background-color: #04AA6D;
 }
 
-/* Content container */
+/* Intro / text container */
 .container { 
   position: relative;
-  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +75,7 @@ ul li a.active {
   margin: 0;
 }
 
-/* Center the iframes and remove lines */
+/* Center the iframes and make them responsive */
 .iframe-container {
   display: flex;
   flex-direction: column;
@@ -84,17 +83,21 @@ ul li a.active {
   justify-content: center;
   margin: 40px 0;
   text-align: center;
+  width: min(95vw, 800px);
 }
 
 iframe {
   display: block;
   border: none;
   outline: none;
-  width: min(95vw, 800px);
-  aspect-ratio: 1 / 1;
-  background: transparent;  /* remove white box effect */
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 1 / 1;      /* Keeps square proportion */
+  background: transparent;
   margin: 0;
   padding: 0;
+  transform-origin: top left;
+  overflow: hidden;
 }
 
 /* Responsive columns (optional future use) */
