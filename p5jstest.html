@@ -3,97 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>p5 iframes scaled to 400×400</title>
 <link href="https://fonts.googleapis.com/css?family=Anek+Odia" rel="stylesheet">
 <style>
-  body { font-family:'Anek Odia', sans-serif; font-size:22px; margin:10px; }
-  ul { list-style:none; margin:0; padding:0; overflow:hidden; background:#FC19B7; }
-  ul li { float:left; }
-  ul li a { display:block; color:#fff; text-align:center; padding:14px 16px; text-decoration:none; }
-  ul li a:hover:not(.active){ background:#750050; }
-  ul li a.active { background:#04AA6D; }
+  body { font-family:'Anek Odia',sans-serif; font-size:22px; margin:10px; }
 
-  .section { text-align:center; margin:30px 0; }
-
-  /* 400×400 frame that centers content and hides overflow */
+  /* 400×400 outer frame (no scrollbars) */
   .frame {
-    width:400px; height:400px; margin:0 auto; background:#111;
-    position:relative; overflow:hidden; border-radius:8px;
+    width:400px; height:400px; margin:30px auto;
+    position:relative; overflow:hidden; background:#111; border-radius:8px;
   }
 
-  /* Scaled layer: we scale this, not the 400×400 frame */
-  .scale {
+  /* We scale the iframe itself */
+  .frame iframe {
     position:absolute; top:50%; left:50%;
-    transform-origin:0 0;                    /* scale from top-left */
-    transform:translate(-50%, -50%) scale(1);
-    will-change: transform;
+    border:0; display:block;
+    transform-origin:0 0;
+    /* width/height set from data-natural via JS */
   }
 
-  /* The iframe keeps its natural size; we scale its parent */
-  .scale iframe {
-    display:block; border:0;
-    width:var(--natw, 800px);
-    height:var(--nath, 600px);
-  }
+  h2, p { text-align:center; margin:10px 0; }
 </style>
 </head>
 <body>
 
-<ul>
-  <li><a href="index.html" class="active">Sarah Buckius</a></li>
-  <li><a href="glitch.html">Glitch</a></li>
-  <li><a href="meme_mashup.html">MEME Mashup</a></li>
-  <li><a href="3d.html">3D</a></li>
-  <li><a href="net_art.html">Net Art</a></li>
-  <li><a href="p5jstest.html">p5js</a></li>
-  <li><a href="finalproject.html">Final Project</a></li>
-  <li style="float:right"><a href="about.html">About</a></li>
-</ul>
-
-<div class="section">
-  <h2>Title of Self Portrait</h2>
-  <p>Artist Statement</p>
-  <div class="frame" data-natural="800x600">
-    <div class="scale">
-      <iframe src="self_portrait_demo_oct14/index.html" title="Self Portrait"></iframe>
-    </div>
-  </div>
+<h2>Self Portrait</h2>
+<p>Artist Statement</p>
+<div class="frame" data-natural="800x600">
+  <iframe src="self_portrait_demo_oct14/index.html" title="Self Portrait" scrolling="no"></iframe>
 </div>
 
-<div class="section">
-  <h2>Title of Drawing Tool</h2>
-  <p>Artist Statement</p>
-  <div class="frame" data-natural="800x600">
-    <div class="scale">
-      <iframe src="self_portrait_with_drawing/index.html" title="Drawing Tool"></iframe>
-    </div>
-  </div>
+<h2>Drawing Tool</h2>
+<p>Artist Statement</p>
+<div class="frame" data-natural="800x600">
+  <iframe src="self_portrait_with_drawing/index.html" title="Drawing Tool" scrolling="no"></iframe>
 </div>
 
-<div class="section">
-  <h2>Title of One Button Game</h2>
-  <p>Artist Statement</p>
-  <div class="frame" data-natural="1024x768">
-    <div class="scale">
-      <iframe src="one_button_game_moving_target_image/index.html" title="One Button Game"></iframe>
-    </div>
-  </div>
+<h2>One Button Game</h2>
+<p>Artist Statement</p>
+<div class="frame" data-natural="1024x768">
+  <iframe src="one_button_game_moving_target_image/index.html" title="One Button Game" scrolling="no"></iframe>
 </div>
 
 <script>
-  // Scale each .frame so its inner "natural size" fits into 400×400 (no scrollbars).
+  // Scale each iframe so its NATURAL size fits inside 400×400, centered.
   document.querySelectorAll('.frame').forEach(frame => {
-    const scaleLayer = frame.querySelector('.scale');
-    const iframe = scaleLayer.querySelector('iframe');
-
-    // Read natural size from data attribute, fallback to 800×600 if missing
+    const ifr = frame.querySelector('iframe');
     const hint = frame.getAttribute('data-natural') || '800x600';
-    const [natW, natH] = hint.split('x').map(n => parseInt(n, 10));
-    iframe.style.setProperty('--natw', natW + 'px');
-    iframe.style.setProperty('--nath', natH + 'px');
+    const [natW, natH] = hint.split('x').map(n => parseInt(n,10));
+
+    // Give the iframe its natural size so scaling is predictable
+    ifr.style.width  = natW + 'px';
+    ifr.style.height = natH + 'px';
 
     const boxW = frame.clientWidth, boxH = frame.clientHeight; // 400×400
-    const s = Math.min(boxW / natW, boxH / natH);              // contain (no crop)
-    scaleLayer.style.transform = `translate(-50%, -50%) scale(${s})`;
+    const s = Math.min(boxW / natW, boxH / natH); // contain (no crop)
+
+    // Center (translate to frame center), then scale from top-left
+    ifr.style.transform = `translate(-50%, -50%) scale(${s})`;
   });
 </script>
 
