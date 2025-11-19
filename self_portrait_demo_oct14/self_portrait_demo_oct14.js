@@ -8,7 +8,7 @@ function preload() {
 
 function setup() {
   
-  createCanvas(720, 720);
+  createCanvas(windowWidth, windowHeight);
   background(255, 204, 0);
   angleMode(DEGREES);
   
@@ -112,4 +112,7 @@ text('123456789', 100, 100);
 
 function draw() {
 
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
