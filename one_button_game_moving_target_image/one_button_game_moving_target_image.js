@@ -7,11 +7,16 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(720, 720);
+
+  createCanvas(windowWidth, windowHeight);
   x = random(width);
   y = random(height);
   dx = random(-3, 3);
   dy = random(-3, 3);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
