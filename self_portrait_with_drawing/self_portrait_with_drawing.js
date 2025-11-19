@@ -1,6 +1,6 @@
 function setup() {
   
-createCanvas(720, 720);
+  createCanvas(windowWidth, windowHeight);
 background('#660022');
 angleMode (DEGREES);
   textSize(10);
@@ -229,4 +229,8 @@ function draw() {
   square(mouseY,mouseX*2,mouseX/4);
   
 
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
