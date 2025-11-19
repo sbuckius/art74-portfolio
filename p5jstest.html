@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"> 
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href='https://fonts.googleapis.com/css?family=Anek Odia' rel='stylesheet'> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Anek+Odia" rel="stylesheet">
 
 <style>
 body {
-font-family: 'Anek Odia';font-size: 22px;  
-margin: 10px;
+  font-family: 'Anek Odia', sans-serif;
+  font-size: 22px;
+  margin: 0;
   padding: 0;
 }
 
-h2, p {
-  margin: 10px;
-}
-
 ul {
-  list-style-type: none;
+  list-style: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #FC19B7;
 }
-
-ul li {
-  float: left;
-}
-
+ul li { float: left; }
 ul li a {
   display: block;
   color: white;
@@ -36,23 +28,34 @@ ul li a {
   padding: 14px 16px;
   text-decoration: none;
 }
+ul li a:hover:not(.active) { background-color: #750050; }
+ul li a.active { background-color: #04AA6D; }
 
-ul li a:hover:not(.active) {
-  background-color: #750050;
+.section {
+  text-align: center;
+  margin: 30px 0;
 }
 
-ul li a.active {
-  background-color: #04AA6D;
+/* Fixed 400×400 frame */
+.frame-box {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-    iframe {
-      width: 400px;
-      height: 400px;
-      border: none;
-      object-fit: fill; /* stretch or shrink to fill box */
-      display: block;
-    }
+/* The iframe is scaled to fit the box */
+.frame-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  transform-origin: center center;
+  transform: scale(1);
+}
 </style>
 </head>
 <body>
@@ -63,33 +66,33 @@ ul li a.active {
   <li><a href="meme_mashup.html">MEME Mashup</a></li>
   <li><a href="3d.html">3D</a></li>
   <li><a href="net_art.html">Net Art</a></li>
-   <li><a href="p5jstest.html">p5js</a></li>
+  <li><a href="p5jstest.html">p5js</a></li>
   <li><a href="finalproject.html">Final Project</a></li>
   <li style="float:right"><a href="about.html">About</a></li>
 </ul>
 
-<div style="text-align:center">
+<div class="section">
   <h2>Title of Self Portrait</h2>
   <p>Artist Statement</p>
-
-
- <iframe src="self_portrait_demo_oct14/index.html" title="Self Portrait"></iframe> 
+  <div class="frame-box">
+    <iframe src="self_portrait_demo_oct14/index.html"></iframe>
+  </div>
 </div>
 
-  <div style="text-align:center">
+<div class="section">
   <h2>Title of Drawing Tool</h2>
   <p>Artist Statement</p>
-
-
- <iframe src="self_portrait_with_drawing/index.html" title="Self Portrait"></iframe> 
+  <div class="frame-box">
+    <iframe src="self_portrait_with_drawing/index.html"></iframe>
+  </div>
 </div>
 
-  <div style="text-align:center">
+<div class="section">
   <h2>Title of One Button Game</h2>
   <p>Artist Statement</p>
-
-
- <iframe src="one_button_game_moving_target_image/index.html" title="Self Portrait"></iframe> 
+  <div class="frame-box">
+    <iframe src="one_button_game_moving_target_image/index.html"></iframe>
+  </div>
 </div>
 
 </body>
