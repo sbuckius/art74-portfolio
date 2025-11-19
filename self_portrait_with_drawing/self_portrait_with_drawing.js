@@ -1,6 +1,6 @@
 function setup() {
   
-createCanvas(720, 720);
+createCanvas(600, 600);
 background('#660022');
 angleMode (DEGREES);
   textSize(10);
